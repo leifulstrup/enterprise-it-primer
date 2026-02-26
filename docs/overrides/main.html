@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block announce %}
+<span class="announce-text">
+  This resource was developed with AI assistance and is provided for educational purposes.
+  Verify information with primary sources before making business decisions.
+  <a href="{{ 'disclaimer/' | url }}">Learn more</a>
+</span>
+{% endblock %}
+
+{% block content %}
+{% if page and page.meta and page.meta.reading_time and page.meta.difficulty %}
+<div class="page-badges">
+  <span class="badge badge-time">{{ page.meta.reading_time }} min read</span>
+  <span class="badge badge-difficulty badge-{{ page.meta.difficulty | lower }}">{{ page.meta.difficulty }}</span>
+</div>
+{% endif %}
+{% if page and not page.is_homepage and page.file.src_path != "disclaimer.md" %}
+<div class="ai-content-notice">
+  <em>AI-assisted content &mdash; <a href="{{ 'disclaimer/' | url }}">see full disclaimer</a></em>
+</div>
+{% endif %}
+{{ super() }}
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+/* Mermaid diagram text contrast fix.
+   Material for MkDocs CSS variables override the text color that
+   Mermaid style directives set on nodes and subgraph labels.
+   This script detects dark-filled elements after Mermaid renders
+   and sets their text to white for readability. */
+(function() {
+  function getLuminance(hex) {
+    hex = hex.replace("#", "");
+    if (hex.length === 3) hex = hex[0]+hex[0]+hex[1]+hex[1]+hex[2]+hex[2];
+    if (hex.length > 6) hex = hex.substring(0, 6);
+    var r = parseInt(hex.substring(0, 2), 16) / 255;
+    var g = parseInt(hex.substring(2, 4), 16) / 255;
+    var b = parseInt(hex.substring(4, 6), 16) / 255;
+    r = r <= 0.03928 ? r / 12.92 : Math.pow((r + 0.055) / 1.055, 2.4);
+    g = g <= 0.03928 ? g / 12.92 : Math.pow((g + 0.055) / 1.055, 2.4);
+    b = b <= 0.03928 ? b / 12.92 : Math.pow((b + 0.055) / 1.055, 2.4);
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  }
+
+  function getFill(el) {
+    var style = el.getAttribute("style") || "";
+    var m = style.match(/fill:\s*(#[0-9a-fA-F]{3,8})/);
+    if (m) return m[1];
+    var fill = el.getAttribute("fill");
+    if (fill && fill.charAt(0) === "#") return fill;
+    return null;
+  }
+
+  function fixContrast() {
+    document.querySelectorAll(".mermaid svg foreignObject").forEach(function(fo) {
+      var g = fo.parentElement;
+      while (g && g.tagName === "g") {
+        for (var i = 0; i < g.children.length; i++) {
+          var tag = g.children[i].tagName;
+          if (tag === "rect" || tag === "path" || tag === "circle" || tag === "polygon") {
+            var fill = getFill(g.children[i]);
+            if (fill && getLuminance(fill) < 0.4) {
+              fo.querySelectorAll("div, span, p").forEach(function(el) {
+                el.style.setProperty("color", "#ffffff", "important");
+              });
+            }
+            return;
+          }
+        }
+        g = g.parentElement;
+      }
+    });
+    /* Also handle SVG <text> elements (edge labels, etc.) */
+    document.querySelectorAll(".mermaid svg text").forEach(function(txt) {
+      var g = txt.parentElement;
+      while (g && g.tagName === "g") {
+        for (var i = 0; i < g.children.length; i++) {
+          var tag = g.children[i].tagName;
+          if (tag === "rect" || tag === "path" || tag === "circle" || tag === "polygon") {
+            var fill = getFill(g.children[i]);
+            if (fill && getLuminance(fill) < 0.4) {
+              txt.setAttribute("fill", "#ffffff");
+            }
+            return;
+          }
+        }
+        g = g.parentElement;
+      }
+    });
+  }
+
+  var timer = null;
+  function debouncedFix() {
+    clearTimeout(timer);
+    timer = setTimeout(fixContrast, 200);
+  }
+
+  var observer = new MutationObserver(function(mutations) {
+    for (var i = 0; i < mutations.length; i++) {
+      for (var j = 0; j < mutations[i].addedNodes.length; j++) {
+        var n = mutations[i].addedNodes[j];
+        if (n.nodeName === "svg" || (n.querySelector && n.querySelector("svg"))) {
+          debouncedFix();
+          return;
+        }
+      }
+    }
+  });
+
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener("DOMContentLoaded", function() {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+
+  window.addEventListener("load", function() {
+    setTimeout(fixContrast, 500);
+    setTimeout(fixContrast, 2000);
+    setTimeout(fixContrast, 5000);
+  });
+})();
+</script>
+{% endblock %}

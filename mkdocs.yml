@@ -1,0 +1,152 @@
+site_name: Enterprise IT Fundamentals Primer
+site_url: https://leifulstrup.github.io/enterprise-it-primer/
+site_description: A reference primer on enterprise IT concepts for MBA students at AU Kogod School of Business
+site_author: AU Kogod School of Business
+
+repo_url: https://github.com/leifulstrup/enterprise-it-primer
+repo_name: leifulstrup/enterprise-it-primer
+
+theme:
+  name: material
+  custom_dir: docs/overrides
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+    - navigation.instant.progress
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.tabs.link
+    - content.tooltips
+    - toc.follow
+    - announce.dismiss
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+  - glightbox
+  - minify:
+      minify_html: true
+  - tags
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      auto_append:
+        - includes/abbreviations.md
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - IT Governance:
+    - governance/index.md
+    - Governance Frameworks: governance/frameworks.md
+    - C-Suite IT Roles: governance/c-suite-roles.md
+    - IT-Business Alignment: governance/it-business-alignment.md
+    - IT Budgeting & Finance: governance/it-budgeting.md
+    - IT Spending Economics: governance/it-spending-economics.md
+    - Platform Economics: governance/platform-economics.md
+  - Enterprise Technology:
+    - technology/index.md
+    - Make vs. Buy: technology/make-vs-buy.md
+    - Cloud Computing: technology/cloud-computing.md
+    - Data Centers: technology/data-centers.md
+    - Enterprise Architecture: technology/enterprise-architecture.md
+    - Enterprise Applications: technology/enterprise-applications.md
+    - Open Source Software: technology/open-source-software.md
+    - Technical Literacy: technology/technical-literacy.md
+  - Risk & Security:
+    - risk-security/index.md
+    - Shadow IT: risk-security/shadow-it.md
+    - Cybersecurity: risk-security/cybersecurity.md
+    - Data Governance: risk-security/data-governance.md
+  - Transformation:
+    - transformation/index.md
+    - Digital Transformation: transformation/digital-transformation.md
+    - AI & Emerging Tech: transformation/ai-emerging-tech.md
+    - Business Process Mgmt: transformation/bpm.md
+    - Analytics Fundamentals: transformation/analytics-fundamentals.md
+    - Analytics Project Methodologies: transformation/analytics-project-methodologies.md
+    - Data Visualization: transformation/data-visualization.md
+    - Innovation Management: transformation/innovation-management.md
+  - IT Management:
+    - management/index.md
+    - Vendor Management: management/vendor-management.md
+    - Project Management: management/project-management.md
+  - Reference:
+    - reference/index.md
+    - Glossary: reference/glossary.md
+    - Frameworks Reference: reference/frameworks-reference.md
+    - Case Studies: reference/case-studies.md
+    - Kogod Faculty Research: reference/kogod-faculty-research.md
+    - Kogod IT & Analytics Courses: reference/kogod-it-courses.md
+    - Learning Pathway: reference/learning-pathway.md
+    - Further Reading: reference/further-reading.md
+    - Tags: reference/tags.md
+  - Disclaimer: disclaimer.md
+
+copyright: >
+  2026v09 &mdash; AU Kogod School of Business.
+  AI-assisted content &mdash; not independently validated. Use as a guide only.
+  <a href="disclaimer/">Full disclaimer</a>.
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/leifulstrup/enterprise-it-primer
+  tags: {}

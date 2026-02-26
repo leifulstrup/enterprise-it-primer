@@ -1,0 +1,167 @@
+/* AU Kogod School of Business Branding */
+/* Primary: AU Blue #15468A | Accent: AU Red #D8213B */
+
+:root {
+  --md-primary-fg-color: #15468A;
+  --md-primary-fg-color--light: #1a5aaf;
+  --md-primary-fg-color--dark: #0f3466;
+  --md-accent-fg-color: #D8213B;
+  --md-accent-fg-color--transparent: #D8213B1a;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #15468A;
+  --md-primary-fg-color--light: #1a5aaf;
+  --md-primary-fg-color--dark: #0f3466;
+  --md-accent-fg-color: #D8213B;
+  --md-accent-fg-color--transparent: #D8213B1a;
+}
+
+/* Callout styling for "Why This Matters" boxes */
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  border-color: #15468A;
+}
+
+.md-typeset .info > .admonition-title,
+.md-typeset .info > summary {
+  background-color: #15468A1a;
+}
+
+/* Navigation tab highlight */
+.md-tabs__link--active {
+  border-bottom: 2px solid #D8213B;
+}
+
+/* Search highlight */
+.md-search-result mark {
+  background-color: #D8213B33;
+}
+
+/* ── Announcement banner ── */
+.md-banner {
+  background-color: #15468A;
+  color: #ffffffdd;
+  font-size: 0.78rem;
+}
+
+.md-banner a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.md-banner a:hover {
+  color: #D8213B;
+}
+
+/* ── Auto-injected per-page AI notice ── */
+.ai-content-notice {
+  font-size: 0.8rem;
+  color: #555;
+  border-left: 3px solid #15468A;
+  padding: 0.35rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.ai-content-notice a {
+  color: #15468A;
+  text-decoration: underline;
+}
+
+.ai-content-notice a:hover {
+  color: #D8213B;
+}
+
+[data-md-color-scheme="slate"] .ai-content-notice {
+  color: #aaabb0;
+  border-left-color: #4a8ad4;
+}
+
+[data-md-color-scheme="slate"] .ai-content-notice a {
+  color: #4a8ad4;
+}
+
+/* ── Reading time & difficulty badges ── */
+.page-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 1rem;
+  line-height: 1.4;
+}
+
+.badge-time {
+  background-color: #15468A1a;
+  color: #15468A;
+  border: 1px solid #15468A40;
+}
+
+.badge-foundational {
+  background-color: #2e7d321a;
+  color: #2e7d32;
+  border: 1px solid #2e7d3240;
+}
+
+.badge-intermediate {
+  background-color: #f57f171a;
+  color: #e65100;
+  border: 1px solid #f57f1740;
+}
+
+.badge-advanced {
+  background-color: #D8213B1a;
+  color: #D8213B;
+  border: 1px solid #D8213B40;
+}
+
+[data-md-color-scheme="slate"] .badge-time {
+  background-color: #4a8ad420;
+  color: #7ab3ee;
+  border-color: #4a8ad450;
+}
+
+[data-md-color-scheme="slate"] .badge-foundational {
+  background-color: #66bb6a20;
+  color: #81c784;
+  border-color: #66bb6a50;
+}
+
+[data-md-color-scheme="slate"] .badge-intermediate {
+  background-color: #ffa72620;
+  color: #ffb74d;
+  border-color: #ffa72650;
+}
+
+[data-md-color-scheme="slate"] .badge-advanced {
+  background-color: #ef535020;
+  color: #ef9a9a;
+  border-color: #ef535050;
+}
+
+/* ── Footer copyright disclaimer styling ── */
+.md-copyright {
+  font-size: 0.72rem;
+  opacity: 0.85;
+}
+
+.md-copyright a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* ── Mermaid diagram text contrast ──
+   Override Material's default which sets node text to the accent color
+   (AU Red #D8213B). Use the standard body text color instead, then let
+   the JS post-processor in main.html flip dark-filled nodes to white. */
+:root > * {
+  --md-mermaid-node-fg-color: var(--md-default-fg-color);
+  --md-mermaid-label-fg-color: var(--md-default-fg-color);
+}
