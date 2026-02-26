@@ -15,7 +15,7 @@ Topics that MBA graduates need to understand but cannot be covered in depth duri
 
 ## Live Site
 
-**[https://leifulstrup.github.io/Enterprise-IT-Primer/](https://leifulstrup.github.io/Enterprise-IT-Primer/)**
+**[https://leifulstrup.github.io/enterprise-it-primer/](https://leifulstrup.github.io/enterprise-it-primer/)**
 
 ## Running Locally
 
