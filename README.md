@@ -17,6 +17,16 @@ Topics that MBA graduates need to understand but cannot be covered in depth duri
 
 **[https://leifulstrup.github.io/enterprise-it-primer/](https://leifulstrup.github.io/enterprise-it-primer/)**
 
+## Prerequisites
+
+This project uses [uv](https://docs.astral.sh/uv/), a fast Python package and project manager. Install it with:
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+Or on macOS via Homebrew: `brew install uv`
+
 ## Running Locally
 
 ```bash
