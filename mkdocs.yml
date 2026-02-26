@@ -1,10 +1,10 @@
 site_name: Enterprise IT Fundamentals Primer
-site_url: https://leifulstrup.github.io/enterprise-it-primer/
+site_url: https://leifulstrup.github.io/Enterprise-IT-Primer/
 site_description: A reference primer on enterprise IT concepts for MBA students at AU Kogod School of Business
 site_author: AU Kogod School of Business
 
-repo_url: https://github.com/leifulstrup/enterprise-it-primer
-repo_name: leifulstrup/enterprise-it-primer
+repo_url: https://github.com/leifulstrup/Enterprise-IT-Primer
+repo_name: leifulstrup/Enterprise-IT-Primer
 
 theme:
   name: material
@@ -148,5 +148,5 @@ copyright: >
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/leifulstrup/enterprise-it-primer
+      link: https://github.com/leifulstrup/Enterprise-IT-Primer
   tags: {}
